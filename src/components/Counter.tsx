@@ -1,9 +1,5 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { cn } from '@/lib/utils';
-import { usePathname } from 'next/navigation';
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 
 
 interface CounterProps {

@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import Counter from "@/components/Counter";
 import { cn } from "@/lib/utils";
 

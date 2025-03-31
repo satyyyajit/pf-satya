@@ -4,7 +4,6 @@ import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ProjectCard from "@/components/ProjectCard";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 const Work = () => {
   const [isLoaded, setIsLoaded] = useState(false);

@@ -4,8 +4,6 @@ import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
-import Navbar from "@/components/Navbar";
 import Loading from "@/components/Loading";
 import About from "./(pages)/about/About";
 import Work from "./(pages)/work/Work";

@@ -1,6 +1,5 @@
 // This is a layout.tsx file in a Next.js application.
 
-import { toast } from "sonner"
 import { Toaster } from "sonner";
 import type { Metadata } from "next";
 import "./globals.css";

@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { Send, Mail, MapPin, Phone } from "lucide-react";
+import { Send, Mail, MapPin } from "lucide-react";
 import SocialLinks from "@/components/SocialLinks";
 import { toast } from "sonner";
 
