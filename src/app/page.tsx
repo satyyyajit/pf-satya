@@ -1,103 +1,148 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+import { useEffect, useState, useRef } from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
+import Navbar from "@/components/Navbar";
+import Loading from "@/components/Loading";
+import About from "./(pages)/about/About";
+import Work from "./(pages)/work/Work";
+import Contact from "./(pages)/contact/Contact";
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+
+
+const Index = () => {
+    const [isLoaded, setIsLoaded] = useState(false);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const nameRef = useRef<HTMLDivElement>(null);
+    const nameParts = ["Sattz"];
+    
+    useEffect(() => {
+        const loadTimeout = setTimeout(() => {
+            setIsLoaded(true);
+                return (
+                    <Loading />
+                )
+            }, 1000);
+        return () => clearTimeout(loadTimeout);
+    }, []);
+    
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+          if (!containerRef.current || !nameRef.current) return;
+          
+          const { clientX, clientY } = e;
+          const { width, height, left, top } = containerRef.current.getBoundingClientRect();
+          
+          const x = (clientX - left) / width - 0.5;
+          const y = (clientY - top) / height - 0.5;
+          
+          // Subtle text movement
+          nameRef.current.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
+        };
+        
+        window.addEventListener("mousemove", handleMouseMove);
+        return () => window.removeEventListener("mousemove", handleMouseMove);
+      }, []);   
+    
+    return (
+      <div 
+        ref={containerRef}
+        className="page-container relative flex flex-col mt-16 justify-between pt-24 md:pt-32 overflow-hidden"
+      >
+        
+        <div className="blur-gradient w-[500px] h-[500px] bg-blue-500/20 right-[-250px] top-[20%]" />
+        <div className="blur-gradient w-[500px] h-[500px] bg-purple-500/20 left-[-250px] bottom-[10%]" />
+        <div className="blur-gradient w-[500px] h-[500px] bg-green-500/10 bottom-[-250px] top-[40%]" />
+        <div className="max-w-5xl mx-auto w-full">
+          <div className={cn("space-y-4 opacity-0 animate-fade-in", { "opacity-100": isLoaded })}>
+            <div className="inline-block border border-white/20 px-2 py-1 text-xs font-mono text-white/70">
+              FULL STACK DEV & STUDENT @ VIT
+            </div>
+            
+            <h1 
+              ref={nameRef}
+              className="text-5xl md:text-8xl lg:text-9xl font-medium tracking-tighter text-white mt-4 transition-transform duration-500 ease-out"
+              style={{ willChange: "transform" }}
+            >
+              {nameParts.map((part, index) => (
+                <span 
+                  key={index} 
+                  className={cn("inline-block", {
+                    "translate-y-0 opacity-100": isLoaded,
+                    "translate-y-8 opacity-0": !isLoaded,
+                  }, "transition-all duration-700 ease-out")}
+                  style={{ transitionDelay: `${0.1 + index * 0.1}s` }}
+                >
+                  {part}
+                </span>
+              ))}
+            </h1>
+            
+            <div 
+              className={cn(
+                "mt-8 max-w-2xl text-lg md:text-xl text-white/80 leading-relaxed",
+                { "translate-y-0 opacity-100": isLoaded, "translate-y-8 opacity-0": !isLoaded },
+                "transition-all duration-700 ease-out delay-300"
+              )}
+            >
+              A 2nd Year CS Student at VIT, <br />
+              An introvert who loves to try a lot of things and learn new skills in a room. <br />
+              Currently learning about development, languages, and frameworks. <br />
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
-}
+        
+        <div className="mt-16 md:mt-32 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto w-full">
+          <Link href="#work" className={cn(
+              "group p-8 border border-white/10 rounded-sm hover:bg-white/5 transition-all duration-500 ease-out",
+              { "translate-y-0 opacity-100": isLoaded, "translate-y-8 opacity-0": !isLoaded },
+              "transition-all duration-700 ease-out delay-400"
+          )}>
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-mono text-white">MY WORK</h3>
+              <ArrowRight className="w-4 h-4 text-white opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+            </div>
+            <p className="text-white/70">
+              Explore my portfolio of projects and see how I bring ideas to life with clean, elegant code.
+            </p>
+          </Link>
+          
+          <Link href="#about" className={cn(
+              "group p-8 border border-white/10 rounded-sm hover:bg-white/5 transition-all duration-500 ease-out",
+              { "translate-y-0 opacity-100": isLoaded, "translate-y-8 opacity-0": !isLoaded },
+              "transition-all duration-700 ease-out delay-500"
+          )}>
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-mono text-white">ABOUT ME</h3>
+              <ArrowRight className="w-4 h-4 text-white opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+            </div>
+            <p className="text-white/70">
+              Learn more about my journey, skills, and what drives me to create exceptional experiences.
+            </p>
+          </Link>
+        </div>
+        
+        <div className="mt-24 mb-8 text-center text-white/50 text-sm font-mono opacity-0 animate-fade-in" style={{ animationDelay: "0.7s" }}>
+          © {new Date().getFullYear()} • Designed & Built with precision
+        </div>
+      </div>
+    );
+};
+
+const Page = () => {
+
+    return (
+        <>
+            <Index />
+            <About/>
+            <Work/>
+            <Contact/>
+        </>
+    );
+
+};
+  
+  export default Page;
