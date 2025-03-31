@@ -62,9 +62,7 @@ const Contact = () => {
                             isLoaded ? "opacity-100" : "opacity-0",
                             "transition-opacity duration-700"
                         )}
-                    >
-                        LET'S TALK
-                    </h1>
+                    >LET &apos;S TALK</h1>
 
                     <p
                         className={cn(
@@ -73,7 +71,7 @@ const Contact = () => {
                             "transition-all duration-700 ease-out delay-200"
                         )}
                     >
-                        Have a project in mind or just want to say hello? Feel free to reach out in my socials and I'll get back to you as soon as possible.
+                        Have a project in mind or just want to say hello? Feel free to reach out in my socials and I will get back to you as soon as possible.
                     </p>
                 </div>
 
@@ -121,7 +119,7 @@ const Contact = () => {
                             <div>
                                 {isSubmitted ? (
                                     <div className="flex items-center justify-center px-4 py-3 bg-white/10 border border-white/20 rounded-sm text-white">
-                                        Message sent successfully! I'll get back to you soon.
+                                        Message sent successfully! I will get back to you soon.
                                     </div>
                                 ) : (
                                     <button

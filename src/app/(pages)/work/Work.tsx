@@ -84,7 +84,7 @@ const Work = () => {
             "transition-opacity duration-700 delay-700"
           )}
         >
-          <p className="text-white/70 mb-6">Have a project in mind? Let's create something amazing together.</p>
+          <p className="text-white/70 mb-6">Have a project in mind? Let&apos;s create something amazing together.</p>
           <Link 
             href="#contact" 
             className="inline-flex items-center space-x-2 px-6 py-3 bg-white text-black hover:bg-white/90 transition-colors duration-300 rounded-sm"

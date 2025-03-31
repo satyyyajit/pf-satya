@@ -90,7 +90,7 @@ const Navbar = () => {
 
         <div className="flex items-center">
           <Link href="/#contact" className="text-white/90 text-sm font-mono flex items-center">
-            <span className="mr-1">→</span> LET'S TALK
+            <span className="mr-1">→</span> LET&apos;S TALK
           </Link>
 
           {/* Hamburger menu button - only visible on mobile */}
@@ -131,7 +131,7 @@ const Navbar = () => {
             className="text-white/90 text-xl font-mono flex items-center mt-4"
             onClick={() => setIsMenuOpen(false)}
           >
-            <span className="mr-2">→</span> LET'S TALK
+            <span className="mr-2">→</span> LET&apos;S TALK
           </Link>
         </nav>
       </div>

@@ -17,9 +17,9 @@ interface ProjectCardProps {
   index: number;
 }
 
-const ProjectCard = ({ id, title, description, imageUrl, technologies, link, index }: ProjectCardProps) => {
+const ProjectCard = ({  title, description, imageUrl, technologies, link, index }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
-
+  console.log(isHovered)  
   return (
     <motion.div
       className={cn(

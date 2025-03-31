@@ -54,6 +54,9 @@ const Resume = () => {
 
   ];
   
+  console.log(workExperience);
+  console.log(education);
+
   return (
     <div className="page-container pt-32 pb-16 mt-20">
       {/* Background gradient effects */}

@@ -66,11 +66,11 @@ const About = () => {
                         <div className="mb-8">
                             <h3 className="text-lg font-mono text-white mb-4">MY BACKGROUND</h3>
                             <p className="text-white/70 leading-relaxed">
-                                I'm a second-year B.Tech CSE student at VIT, super curious about tech and always up for learning new things! I know Java and Python pretty well, and I mess around with android and web dev too HTML, CSS, and JavaScript.
+                                I am a second-year B.Tech CSE student at VIT, super curious about tech and always up for learning new things! I know Java and Python pretty well, and I mess around with android and web dev too HTML, CSS, and JavaScript.
                                 <br /><br />
-                                Outside of coding, I love photography because it helps me capture cool moments. Gaming? Yeah, it's my way to chill and challenge myself at the same time. Also, I try to stay fit because, you know, balance is important.
+                                Outside of coding, I love photography because it helps me capture cool moments. Gaming? Yeah, it is my way to chill and challenge myself at the same time. Also, I try to stay fit because, you know, balance is important.
                                 <br /><br />
-                                I’m really into languages, and right now, I am learning Japanese! I already communicate Hindi, English, Odia, and Bengali, and know very-few words in telugu as well, so why not add another one, right? When I’m not coding or studying, you will probably find me vibing to music or watching movies, You could call me a cinephile. 😎
+                                I am really into languages, and right now, I am learning Japanese! I already communicate Hindi, English, Odia, and Bengali, and know very-few words in telugu as well, so why not add another one, right? When I am not coding or studying, you will probably find me vibing to music or watching movies, You could call me a cinephile. 😎
                             </p>
                         </div>
 
