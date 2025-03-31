@@ -34,7 +34,13 @@ const Contact = () => {
             setFormData({ name: "", message: "" });
 
             // Reset success message after 5 seconds
-            
+            toast.success("Message sent successfully! I'll get back to you soon.", {
+                duration: 5000,
+                action: {
+                    label: "Close",
+                    onClick: () => toast.dismiss(),
+                },
+            });
             setTimeout(() => {
                 setIsSubmitted(false);
             }, 5000);
