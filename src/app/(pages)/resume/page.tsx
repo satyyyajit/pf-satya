@@ -37,7 +37,7 @@ const Resume = () => {
       degree: "B.Tech in Computer Science",
       institution: "Vellore Institute of Technology University - Andhra Pradesh",
       period: "2023 - 2027",
-      description: "Pursuing a Bachelor's degree in Computer Science with a focus on software development. I have actively participated in various hackathons and coding competitions, achieving Runner-up position with my team in GFG VITAP HacktoberFest 2024. Through these experiences, I have gained extensive hands-on experience in software development and problem-solving. Additionally, I am serving as a Co-Lead in Team Next Nexus Creative Team, where I enhanced my design skills and team leadership abilities."
+      description: "Pursuing a Bachelor's degree in Computer Science with a focus on software development. I have actively participated in various hackathons and coding competitions, achieving Runner-up position with my team in GFG VITAP HacktoberFest 2024. Through these experiences, I have gained extensive hands-on experience in software development and problem-solving. Additionally, I served as a lead of creative team in Team Next Nexus Creative Team, where I enhanced my design skills and team leadership abilities."
     },
     {
         degree: "Higher Secondary Schooling (12th Grade)",
