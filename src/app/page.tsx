@@ -15,7 +15,7 @@ const Index = () => {
     const [isLoaded, setIsLoaded] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const nameRef = useRef<HTMLDivElement>(null);
-    const nameParts = ["Sattz"];
+    const nameParts = ["SATYAJIT"];
     
     useEffect(() => {
         const loadTimeout = setTimeout(() => {
